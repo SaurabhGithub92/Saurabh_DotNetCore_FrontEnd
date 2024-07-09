@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import PostsComponent from "./components/PostsComponent";
-import PostComponent from "./components/PostComponent";
+import PostDetailComponent from "./components/PostDetailComponent";
 
 const App: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const App: React.FC = () => {
       <div>
         <Routes>
           <Route path='/' element={<PostsComponent />} />
-          <Route path='/posts/:postId' element={<PostComponent postId={1} />} />
+          <Route path='/posts/:id' element={<PostDetailComponent />} />
         </Routes>
       </div>
     </Router>

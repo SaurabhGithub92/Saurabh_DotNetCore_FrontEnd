@@ -1,6 +1,6 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { getPosts, getPostById } from "../services/PostService";
+import PostService from "../services/PostService";
 
 const mock = new MockAdapter(axios);
 const API_BASE_URL = "https://localhost:7245/api/Posts";
@@ -14,7 +14,7 @@ describe('PostService', () => {
         const posts = [{userId: 1, id: 1, title: 'Post 1'}];
         mock.onGet(API_BASE_URL).reply(200, posts);
 
-        const result = await getPosts();
+        const result = await PostService.getPosts();
         expect(result).toEqual(posts);
     });
 
@@ -22,7 +22,7 @@ describe('PostService', () => {
         const post = {userId: 1, id: 1, title: 'Post 1'}
         mock.onGet(`${API_BASE_URL}/1`).reply(200, post);
 
-        const result = await getPostById(1);
+        const result = await PostService.getPostById(1);
         expect(result).toEqual(post);
     });
 });
