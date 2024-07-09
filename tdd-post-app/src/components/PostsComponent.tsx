@@ -1,11 +1,15 @@
 import React from "react"
-import PostService, { Post } from "../services/PostService";
 import useFetch from "../utils/useFetch";
 import { Link } from "react-router-dom";
+import { Post } from "../models/Post";
+import { IPostService } from "../services/IPostService";
 
+interface PostsComponentProps {
+    postService: IPostService;
+}
 
-const PostsComponent: React.FC = React.memo(() => {
-    const {data: posts, error, loading } = useFetch<Post[]>(PostService.getPosts);
+const PostsComponent: React.FC<PostsComponentProps> = ({postService}) => {
+    const {data: posts, error, loading } = useFetch<Post[]>(postService.getPosts);
 
     if(loading){
         return <div>Loading...</div>
@@ -27,6 +31,6 @@ const PostsComponent: React.FC = React.memo(() => {
             </ul>
         </div>
     )
-});
+}
 
-export default PostsComponent;
+export default React.memo(PostsComponent);
