@@ -18,7 +18,7 @@ const PostsComponent: React.FC = () => {
             }
         }
         fetchPosts();
-    }, [])
+    }, []);
 
     if(loading){
         return <div>Loading...</div>

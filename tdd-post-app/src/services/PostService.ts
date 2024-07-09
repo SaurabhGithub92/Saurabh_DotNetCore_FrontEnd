@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const API_BASE_URL = "https://localhost:7245/api/Posts";
+import { API_BASE_URL } from "../utils";
 
 export interface Post {
     userId: number;
