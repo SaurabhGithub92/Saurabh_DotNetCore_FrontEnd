@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { getPostById, Post } from "../services/PostService";
 
-interface PostDetailProps {
+interface PostProps {
     postId: number;
 }
 
-const PostDetail: React.FC<PostDetailProps> = ({ postId }) => {
+const PostComponent: React.FC<PostProps> = ({ postId }) => {
     const [post, setPost] = useState<Post | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -39,4 +39,4 @@ const PostDetail: React.FC<PostDetailProps> = ({ postId }) => {
     )
 }
 
-export default PostDetail;
+export default PostComponent;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { getPosts, Post } from "../services/PostService"
 
 
-const PostList: React.FC = () => {
+const PostsComponent: React.FC = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -41,4 +41,4 @@ const PostList: React.FC = () => {
     )
 }
 
-export default PostList;
+export default PostsComponent;
