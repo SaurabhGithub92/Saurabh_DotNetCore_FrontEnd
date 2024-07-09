@@ -1,10 +1,20 @@
 import React from 'react';
-import Hello from './components/Hello';
+import './App.css';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import PostsList from "./components/PostsList";
+import PostDetail from "./components/PostDetail";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <Hello name='world' />
-  );
+    <Router>
+      <div>
+        <Routes>
+          <Route path='/' element={<PostsList />} />
+          <Route path='/posts/:postId' element={<PostDetail postId={1} />} />
+        </Routes>
+      </div>
+    </Router>
+  )
 }
 
 export default App;
